@@ -1,53 +1,63 @@
 <template>
-  <header class="bg-blue-600 shadow-md">
+  <header class="bg-primary-600 shadow-lg">
     <div class="container mx-auto px-4">
-      <div class="flex flex-wrap items-center justify-between py-6">
-        <!-- Logo -->
-        <div class="flex items-center flex-shrink-0 mr-6">
-          <router-link to="/" class="font-bold text-2xl text-white">
-            Zeko Rent
-          </router-link>
-        </div>
-
-        <!-- Mobile menu button -->
-        <div class="block lg:hidden">
-          <button
-            @click="toggleMenu"
-            class="flex items-center px-3 py-2 border rounded text-white border-white hover:text-blue-200 hover:border-blue-200"
-          >
-            <svg
-              class="fill-current h-4 w-4"
-              viewBox="0 0 20 20"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <title>Menu</title>
-              <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z" />
-            </svg>
-          </button>
-        </div>
-
-        <!-- Navigation Menu -->
-        <nav
-          :class="{ hidden: !isMenuOpen, block: isMenuOpen }"
-          class="w-full lg:flex lg:items-center lg:w-auto"
+      <div class="flex items-center justify-between py-6">
+        <router-link
+          to="/"
+          class="text-2xl font-bold text-white hover:text-primary-200 transition duration-300"
         >
-          <ul class="text-lg lg:flex-grow">
-            <li
-              v-for="(item, index) in menuItems"
-              :key="index"
-              class="block mt-4 lg:inline-block lg:mt-0 mr-6"
-            >
-              <router-link
-                :to="item.path"
-                class="text-white hover:text-blue-200 transition duration-300"
-                @click="closeMenu"
-              >
-                {{ item.name }}
-              </router-link>
-            </li>
-          </ul>
+          Zeko Rent
+        </router-link>
+        <nav class="hidden md:flex space-x-6">
+          <router-link
+            v-for="item in menuItems"
+            :key="item.path"
+            :to="item.path"
+            class="text-white hover:text-primary-200 transition duration-300"
+          >
+            {{ item.name }}
+          </router-link>
         </nav>
+        <button
+          @click="toggleMenu"
+          class="md:hidden text-white focus:outline-none"
+        >
+          <svg
+            class="h-6 w-6"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              v-if="!isMenuOpen"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M4 6h16M4 12h16M4 18h16"
+            />
+            <path
+              v-else
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M6 18L18 6M6 6l12 12"
+            />
+          </svg>
+        </button>
       </div>
+    </div>
+    <div v-show="isMenuOpen" class="md:hidden">
+      <nav class="px-4 pt-2 pb-4 space-y-2">
+        <router-link
+          v-for="item in menuItems"
+          :key="item.path"
+          :to="item.path"
+          class="block text-white hover:text-primary-200 transition duration-300"
+          @click="closeMenu"
+        >
+          {{ item.name }}
+        </router-link>
+      </nav>
     </div>
   </header>
 </template>

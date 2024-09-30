@@ -12,6 +12,7 @@
             :src="service.image"
             :alt="service.title"
             class="w-full h-48 object-cover"
+            loading="lazy"
           />
           <div class="p-6">
             <h2 class="text-xl font-semibold mb-2">{{ service.title }}</h2>

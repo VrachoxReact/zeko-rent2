@@ -1,28 +1,26 @@
 <template>
   <div class="home">
     <!-- Hero Section -->
-    <section class="hero bg-gray-100 py-20">
+    <section
+      class="hero bg-gradient-to-r from-primary-500 to-primary-700 text-white py-20"
+    >
       <div
         class="container mx-auto px-4 flex flex-col md:flex-row items-center"
       >
         <div class="md:w-1/2 mb-8 md:mb-0">
-          <h1 class="text-4xl md:text-5xl font-bold mb-4">
+          <h1 class="text-4xl md:text-5xl font-bold mb-4 text-white">
             Find Your Perfect Rental Property
           </h1>
-          <p class="text-xl mb-6">
+          <p class="text-xl mb-6 text-primary-100">
             Discover a wide range of quality rental properties with Zeko Rent.
           </p>
-          <button
-            class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded"
-          >
-            Start Your Search
-          </button>
+          <button class="btn btn-secondary">Start Your Search</button>
         </div>
         <div class="md:w-1/2">
           <img
             src="https://placehold.co/600x400/png?text=Rental+Property"
             alt="Rental Property"
-            class="rounded-lg shadow-lg w-full"
+            class="rounded-lg shadow-2xl w-full"
           />
         </div>
       </div>
@@ -44,6 +42,7 @@
               :src="testimonial.image"
               :alt="testimonial.name"
               class="w-24 h-24 rounded-full mx-auto mb-4"
+              loading="lazy"
             />
             <h3 class="text-xl font-semibold text-center mb-2">
               {{ testimonial.name }}

@@ -1,7 +1,7 @@
 <template>
-  <footer class="bg-blue-600 text-white">
-    <div class="container mx-auto px-4 py-8">
-      <div class="flex flex-wrap justify-between">
+  <footer class="bg-secondary-800 text-white">
+    <div class="container mx-auto px-4 py-12">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
         <!-- Company Info -->
         <div class="w-full md:w-1/4 mb-6 md:mb-0">
           <h3 class="text-xl font-bold mb-4">Zeko Rent</h3>
@@ -9,18 +9,10 @@
             Your trusted partner in finding the perfect rental property.
           </p>
           <div class="flex space-x-4">
-            <a href="#" class="hover:text-blue-200 transition duration-300">
-              <i class="fab fa-facebook-f"></i>
-            </a>
-            <a href="#" class="hover:text-blue-200 transition duration-300">
-              <i class="fab fa-twitter"></i>
-            </a>
-            <a href="#" class="hover:text-blue-200 transition duration-300">
-              <i class="fab fa-instagram"></i>
-            </a>
-            <a href="#" class="hover:text-blue-200 transition duration-300">
-              <i class="fab fa-linkedin-in"></i>
-            </a>
+            <font-awesome-icon :icon="['fab', 'facebook-f']" />
+            <font-awesome-icon :icon="['fab', 'twitter']" />
+            <font-awesome-icon :icon="['fab', 'instagram']" />
+            <font-awesome-icon :icon="['fab', 'linkedin-in']" />
           </div>
         </div>
 
@@ -87,7 +79,9 @@
       </div>
 
       <!-- Copyright -->
-      <div class="border-t border-blue-500 mt-8 pt-6 text-center">
+      <div
+        class="border-t border-secondary-700 mt-8 pt-8 text-center text-secondary-400"
+      >
         <p>
           &copy; {{ new Date().getFullYear() }} Zeko Rent. All rights reserved.
         </p>
@@ -97,7 +91,12 @@
 </template>
 
 <script>
+import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
+
 export default {
+  components: {
+    FontAwesomeIcon,
+  },
   name: "Footer",
   data() {
     return {

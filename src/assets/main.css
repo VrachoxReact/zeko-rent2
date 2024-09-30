@@ -1,3 +1,48 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  body {
+    font-family: sans-serif;
+    color: theme("colors.secondary.800");
+    line-height: 1.5;
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-weight: bold;
+    color: theme("colors.secondary.900");
+    line-height: 1.25;
+  }
+}
+
+@layer components {
+  .btn {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    border-radius: 9999px;
+    font-weight: 600;
+    text-align: center;
+    transition-property: all;
+    transition-duration: 300ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .btn-primary {
+    background-color: theme("colors.primary.500");
+    color: white;
+  }
+  .btn-primary:hover {
+    background-color: theme("colors.primary.600");
+  }
+  .btn-secondary {
+    background-color: theme("colors.secondary.500");
+    color: white;
+  }
+  .btn-secondary:hover {
+    background-color: theme("colors.secondary.600");
+  }
+}
